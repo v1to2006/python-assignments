@@ -1,7 +1,7 @@
-def convert_to_litres(galloons) -> float:
+def convert_to_litres(gallons) -> float:
 	liter_multiplier = 3.78541
 
-	return float(galloons) * (liter_multiplier)
+	return float(gallons) * (liter_multiplier)
 
 def main():
 	litres = 0
