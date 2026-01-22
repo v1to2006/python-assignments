@@ -1,5 +1,6 @@
-user_numbers = []
 user_input = None
+smallestNumber = None
+biggestNumber = None
 
 while user_input != "":
 	user_input = input("Enter number: ")
@@ -7,6 +8,11 @@ while user_input != "":
 	if user_input == "":
 		break
 
-	user_numbers.append(user_input)
+	if smallestNumber == None or user_input < smallestNumber:
+		smallestNumber = user_input
+	
+	if biggestNumber == None or user_input > biggestNumber:
+		biggestNumber = user_input
 
-print(sorted(user_numbers))
+print(f"Biggest number: {biggestNumber}")
+print(f"Smallest number: {smallestNumber}")
