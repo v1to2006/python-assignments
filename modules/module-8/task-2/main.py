@@ -10,7 +10,7 @@ DB_CONFIG = {
 
 def get_airport_amounts(connection, iso_country):
 	cursor = connection.cursor()
-	query = f"SELECT iso_country, type, COUNT(*) AS airport_count FROM flight_game.airport WHERE iso_country=\"{iso_country}\" GROUP BY iso_country, type ORDER BY airport_count DESC, type"
+	query = f"SELECT type, COUNT(*) AS airport_count FROM {DB_CONFIG["database"]}.airport WHERE iso_country=\"{iso_country}\" GROUP BY iso_country, type ORDER BY airport_count DESC, type"
 
 	cursor.execute(query)
 
@@ -24,7 +24,7 @@ def print_rows(rows):
 		return
 
 	for i in rows:
-		print(f"{i[1]}: {i[2]}")
+		print(f"{i[0]}: {i[1]}")
 
 def main():
 	connection = mysql.connector.connect(**DB_CONFIG)
